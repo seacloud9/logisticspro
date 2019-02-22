@@ -1,0 +1,73 @@
+{
+  "name": ":.::SeaCloud9 Interactive UX / UI:.:::.:: ",
+  "short_name": "sc9",
+  "manifest_version": 2,
+  "icons": [
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "http://seacloud9.org/Images/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "https://seacloud9.org/Images/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "page_action": {
+    "default_icon": {
+      "96" : "https://seacloud9.org/Images/icons/icon-96x96.png",
+      "128": "https://seacloud9.org/Images/icons/icon-128x128.png",
+      "144": "https://seacloud9.org/Images/icons/icon-144x144.png"
+    },
+    "default_title": "SeaCloud9"
+  },
+  "web_accessible_resources": ["https://seacloud9.org/Images/Images/*.png","https://seacloud9.org/Images/Images/*.jpg", "https://seacloud9.org/Images/Images/*.gif"],
+  "background": {
+    "scripts": ["https://seacloud9.org/js/app.js", "https://seacloud9.github.io/ds_aframe1/js/vendor.js", "https://seacloud9.github.io/ds_aframe1/js/app.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://seacloud9.org/*", "*://seacloud9.github.io/*"]
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://fonts.googleapis.com https://cdnjs.cloudflare.com https://bootswatch.com https://maxcdn.bootstrapcdn.com https://seacloud9.github.io; object-src 'self'",
+  "html.js": "https://seacloud9.org/js/app.js",
+  "start_url":"https://seacloud9.org/",
+  "index.html": "index.html",
+  "javascript.js": "https://seacloud9.org/js/app.js",
+  "theme_color": "#eef20e",
+  "background_color": "#eef20e",
+  "display": "standalone",
+  "orientation": "portrait"
+}

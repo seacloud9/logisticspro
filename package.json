@@ -1,0 +1,106 @@
+{
+  "name": "react-material-pwa",
+  "displayName": "react material pwa",
+  "version": "1.0.0",
+  "description": "react material pwa",
+  "main": "src/index.js",
+  "scripts": {
+    "fixcode": "standard --fix",
+    "simple": "cd public && python -m SimpleHTTPServer 8080",
+    "start": "webpack-dev-server",
+    "start2": "webpack-dev-server --hot --inline --history-api-fallback --module-bind 'json=json-loader'",
+    "lint": "standard --verbose | snazzy",
+    "build": "webpack  --progress --profile --colors --optimize-minimize",
+    "build0": "webpack  --progress --profile --colors",
+    "clean": "rm -rf node_modules/ && npm cache clean --force && npm install",
+    "clean2": "rm -rf node_modules/ && npm cache clean --force",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "publish": "npm run build && gh-pages -d build",
+    "publishApp": "cp public/js/app.js www/js/ && cp public/index.html www/index.html"
+  },
+  "author": "Brendon Smith brendonsmith@seacloud9.org",
+  "license": "MIT",
+  "dependencies": {
+    "apisauce": "^0.14.0",
+    "babel-polyfill": "^6.3.14",
+    "history": "^4.7.2",
+    "material-ui": "1.0.0-beta.43",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.2.2",
+    "react-router-page-transition": "^3.1.0",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "0.9.5",
+    "react-with-breakpoints": "^3.0.0",
+    "redux": "^3.7.1",
+    "redux-saga": "^0.15.4",
+    "reduxsauce": "^0.5.0",
+    "seamless-immutable": "^7.1.2",
+    "wp-react-core": "https://github.com/wp-react/wp-react-core.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seacloud9/ethereal.git"
+  },
+  "keywords": [
+    "react",
+    "material",
+    "boilerplate",
+    "redux",
+    "redux-saga",
+    "apisauce"
+  ],
+  "bugs": {
+    "url": "https://github.com/seacloud9/issues"
+  },
+  "homepage": "https://github.com/seacloud9/#readme",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.3",
+    "compression-webpack-plugin": "^1.1.11",
+    "gh-pages": "^0.12.0",
+    "react-hot-loader": "^4.7.1",
+    "snazzy": "^7.1.1",
+    "standard": "^12.0.1",
+    "sw-precache-webpack-plugin": "^0.11.5",
+    "terser-webpack-plugin": "^1.2.1",
+    "webpack": "4.7.0",
+    "webpack-assets-manifest": "^2.0.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "2.1.2",
+    "webpack-dev-server": "3.1.4",
+    "webpack-obfuscator": "^0.18.0",
+    "webpack-strip": "^0.1.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "/env.js",
+      "/service-worker.js",
+      "/doc",
+      ".idea",
+      ".vscode",
+      "/public",
+      "/css",
+      "/js",
+      "/images",
+      "/node_modules",
+      "webpack.config.js"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "fetch",
+      "navigator",
+      "__DEV__",
+      "XMLHttpRequest",
+      "FormData",
+      "React$Element"
+    ]
+  }
+}
