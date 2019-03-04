@@ -21,6 +21,21 @@ mutation Job($name: String!, $dateOfMove: String!, $startTime: Int!, $estimatedT
 }
 `
 
+export const ADDJOBQUE_MUTATION = gql`
+mutation JobQue{
+    JobQue{
+        id
+        date
+        jobName
+        jobID
+        estimatedTime
+        startTime
+        truckID
+        truckName
+    }
+}
+`
+
 
 
 export default class CreateJob extends Component {
@@ -56,6 +71,7 @@ export default class CreateJob extends Component {
                   await Job({
                     variables: { name, dateOfMove, startTime, estimatedTime  },
                   })
+                  //await JobQue()
                 }}
               >
                 <FormControl>

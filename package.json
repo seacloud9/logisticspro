@@ -11,6 +11,7 @@
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-apollo": "2.5.1",
+    "react-apollo-composer": "^1.0.3",
     "react-dom": "16.8.3",
     "react-modal": "3.8.1",
     "react-router-dom": "4.3.1",
