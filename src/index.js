@@ -1,57 +1,105 @@
-import 'babel-polyfill'
-// import devToolsEnhancer from 'remote-redux-devtools'
-import { BreakpointsProvider } from 'react-with-breakpoints'
-import PageTransition from 'react-router-page-transition'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Theme from './containers/style/applicationStyle'
-import HomContainer from './containers/HomeContainer'
-// import WordpressFlipContainer from './containers/WordpressFlipContainer'
-import React from 'react'
+import React, {Fragment} from 'react'
 import ReactDOM from 'react-dom'
-import createHistory from 'history/createBrowserHistory'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import createSagaMiddleware from 'redux-saga'
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import reducer from './reducers'
-import appSagas from './sagas'
-export const history = createHistory()
-const sagaMiddleware = createSagaMiddleware()
-const historyMiddleware = routerMiddleware(history)
-let middleware = [historyMiddleware, sagaMiddleware]
-export const store = createStore(reducer, applyMiddleware(...middleware))
-sagaMiddleware.run(appSagas)
-const breakpoints = {
-  small: 468,
-  medium: 768,
-  large: 1024
-}
-class App extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = props
+import {
+  NavLink,
+  Link,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
+import { ApolloProvider } from 'react-apollo'
+import ApolloClient from 'apollo-boost'
+import CreateTruck  from './components/CreateTruck'
+import CreateJob from './components/CreateJob'
+import  { gql } from 'apollo-boost'
+import 'tachyons'
+import './index.css'
+
+const client = new ApolloClient({ uri: 'http://localhost:4000/graphql' })
+
+export const Job_QUERY = gql`
+  query JobsQuery {
+    Jobs{
+    id
+    name
+    dateOfMove
+    startTime
+    estimatedTime
   }
-  render () {
-    return (
-      <Router>
-        <Route
-          render={({ location }) => (
-            <PageTransition timeout={500}>
-              <Switch location={location}>
-                <ConnectedRouter history={history}>
-                  <MuiThemeProvider theme={Theme}>
-                    <div>
-                      <Route exact path='/' component={HomContainer} />
-                    </div>
-                  </MuiThemeProvider>
-                </ConnectedRouter>
-              </Switch>
-            </PageTransition>
-          )}
-        />
-      </Router>
-    )
+}`
+
+export const Truck_QUERY = gql`
+  query TrucksQuery {
+    Trucks{
+    id
+    name
+    startTime
+    endTime
+    totalHours
+  }
+}`
+
+export const JobQue_QUERY = gql`
+  query JobsQueQuery {
+    JobQue{
+      id
+      date
+      jobName
+      jobID
+      estimatedTime
+      startTime
+      truckID
+      truckName
+    }
+}`
+/*
+export const ADDJOB_MUTATION = gql`
+mutation Job($name: String!, $dateOfMove: String!, $startTime: Number!, $estimatedTime: Number!) {
+  Job(name: $title, dateOfMove: $dateOfMove, startTime:$startTime, $estimatedTime:estimatedTime) {
+    id
+    name
+    dateOfMove
+    startTime
+    estimatedTime
   }
 }
-ReactDOM.render(<Provider store={store}><BreakpointsProvider breakpoints={breakpoints}><App /></BreakpointsProvider></Provider>, document.querySelector('#sc9Port'))
+`
+
+export const ADDTRUCK_MUTATION = gql`
+mutation Truck($name: String!, $startTime: Number!, $endTime: Number!) {
+  Truck(name: $name, startTime: $startTime, endTime:$endTime) {
+    id
+    name
+  	startTime
+    endTime
+    totalHours
+  }
+}
+`
+export const ADDQUE_MUTATION = gql`
+mutation JobQue($dateKey: String!, $jobID: String!, $truckID: String!) {
+  JobQue(dateKey: $dateKey, jobID: $jobID, truckID:$truckID) {
+    id
+    date
+    jobName
+    jobID
+    estimatedTime
+    startTime
+    truckID
+    truckName
+  }
+}
+`
+*/
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <Router>
+      <div>
+        <CreateTruck />
+        <CreateJob />
+        </div>
+    </Router>
+  </ApolloProvider>,
+  document.getElementById('root'),
+)

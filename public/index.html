@@ -1,78 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
-  <meta charset="utf-8"/>
-  <link rel="manifest" href="manifest.json">
-  <link rel="mask-icon" href="/images/icon/safari-pinned-tab.svg" color="#d8f5e4">
-  <meta name="theme-color" content="#eef20e">
-  <meta name="mobile-web-app-capable" content="yes">
-  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet"> 
-  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="/css/index.css">
-  <link rel="stylesheet" type="text/css" href="/css/alice-carousel.css">
-  <title>logisticspro</title>
-</head>
-<body>
-    <div id="loader"  class="loader">
-      loading
-  </div>  
-<div id="sc9Port" style="flex:1"></div>
-<script>
-    var commands = [
-      [ "pointer", "👇"]
-    ];
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <title>React + GraphQL Fullstack Boilerplate</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-    (function() {
-      if(!window.console) return;
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-      // Create custom commands
-      commands.forEach(function(command) {
-        window.console[command[0]] = function() {
-
-          // Get arguments as a string
-          var args = Array.prototype.slice.call(arguments).toString().split(',').join(', ');
-
-          // Log to the console with emoji
-          console.log("%c "+args + " " + command[1],'background: #13367070; color: #FFF');
-        }
-      });
-    })();
-
-    console.pointer('Cheers, thanks for looking and please reach out lets work together! Reach Out Click the link below!')
-    console.log('mailto://brendonsmith@seacloud9.org')
-    if (location.protocol != 'https:' && window.location.hostname !== 'localhost')
-    {
-      location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    }
-    if (location.protocol != 'https:' && window.location.hostname !== 'localhost')
-    {
-      location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    }
-    const shouldRegister = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
-    if ('serviceWorker' in navigator && shouldRegister) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          // Registration was successful
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        }).catch(function(err) {
-          console.log(err)
-        });
-      });
-    } else {
-      console.log('service worker is not supported');
-    }
-  </script>
-  <script type="text/javascript" src="/js/app.js"></script>
-  <noscript>Please enable javascript to enjoy</noscript>
-</body>
+      To begin the development, run `npm start` in this folder.
+      To create a production bundle, use `npm run build`.
+    -->
+  </body>
 </html>
